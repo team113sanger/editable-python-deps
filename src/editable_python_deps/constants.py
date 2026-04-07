@@ -15,7 +15,7 @@ LOG_MSG_FORMAT = "%(asctime)s %(levelname)-8s %(message)s"
 #
 # Good for debugging, as it includes the module, function name and line number.
 # Messages like: "2026-03-24 09:41:12,341 WARNING  [myapp.db] queries:fetch_user:87 | Slow query detected"
-LOG_MSG_FORMAT = (
+DEBUG_LOG_MSG_FORMAT = (
     "%(asctime)s %(levelname)-8s [%(name)s] "
     "%(module)s:%(funcName)s:%(lineno)d | %(message)s"
 )

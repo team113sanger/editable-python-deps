@@ -33,7 +33,8 @@ def setup_logging(level: str = "INFO", name: t.Optional[str] = None) -> logging.
     Returns:
         logging.Logger: The configured logger instance.
     """
-    msg_fmt = constants.LOG_MSG_FORMAT
+    is_debug = level.strip().upper() == "DEBUG"
+    msg_fmt = constants.DEBUG_LOG_MSG_FORMAT if is_debug else constants.LOG_MSG_FORMAT
     date_fmt = constants.LOG_TIME_FORMAT
 
     # 1) Determine the logging level enum from the helper
