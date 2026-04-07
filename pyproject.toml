@@ -11,22 +11,15 @@ authors = [
 ]
 license = {text = "GPL-3.0-or-later"}
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.10,<4.0"
 dependencies = [
+    "click (>=8.3.2,<9.0.0)",
+    "tomlkit (>=0.14.0,<0.15.0)",
+    "prompt-toolkit (>=3.0.52,<4.0.0)",
 ]
 packages = [{ include = "editable_python_deps", from = "src" }]
 
 [project.scripts]
-# Scripts are defined here, and are added by Python to the PATH when the package
-# is installed. In a virtual environment, these scripts are added to the venv/bin/ directory.
-#
-# The syntax is as follows:
-# my_program = "editable_python_deps.my_subpackage:my_function_name"
-# Where:
-# - my_program is the name of the command to be run
-# - editable_python_deps is the name of your package, see 'packages' above
-# - my_subpackage is the name of the subpackage, e.g. 'scripts' or 'entrypoints'
-# - my_function_name is the name of the function to be run, e.g. 'do_something' and not 'do_something()' (it should take no arguments)
 editable-python-deps = "editable_python_deps.cli:run_cli"
 
 [dependency-groups]
@@ -34,7 +27,8 @@ dev = [
     "black[jupyter] (>=25.1.0,<26.0.0)",
     "ipython",
     "pytest",
-    "pre-commit"
+    "pre-commit",
+    "pytest-subprocess (>=1.5.4,<2.0.0)"
 ]
 
 [tool.pytest.ini_options]
