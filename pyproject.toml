@@ -1,0 +1,45 @@
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[project]
+name = "editable-python-deps"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Ian Vermes",email = "iv3@sanger.ac.uk"}
+]
+license = {text = "GPL-3.0-or-later"}
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+]
+packages = [{ include = "editable_python_deps", from = "src" }]
+
+[project.scripts]
+# Scripts are defined here, and are added by Python to the PATH when the package
+# is installed. In a virtual environment, these scripts are added to the venv/bin/ directory.
+#
+# The syntax is as follows:
+# my_program = "editable_python_deps.my_subpackage:my_function_name"
+# Where:
+# - my_program is the name of the command to be run
+# - editable_python_deps is the name of your package, see 'packages' above
+# - my_subpackage is the name of the subpackage, e.g. 'scripts' or 'entrypoints'
+# - my_function_name is the name of the function to be run, e.g. 'do_something' and not 'do_something()' (it should take no arguments)
+editable-python-deps = "editable_python_deps.cli:run_cli"
+
+[dependency-groups]
+dev = [
+    "black[jupyter] (>=25.1.0,<26.0.0)",
+    "ipython",
+    "pytest",
+    "pre-commit"
+]
+
+[tool.pytest.ini_options]
+# Pytest setting go here.
+#
+# For more info, see https://docs.pytest.org/en/8.2.x/reference/customize.html#pyproject-toml
+# e.g. uncomment the following line to enable verbose output
+# addopts = "-v"

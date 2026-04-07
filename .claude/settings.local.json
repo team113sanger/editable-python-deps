@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python template_this_repo.py --help)",
+      "Bash(rm -rf /tmp/test_template)",
+      "Bash(DEBUG=1 python template_this_repo.py --copy-to /tmp/test_template -d)"
+    ]
+  }
+}
