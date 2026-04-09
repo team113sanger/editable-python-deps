@@ -1,0 +1,28 @@
+# Example .editable-deps.toml — co-locate this file with pyproject.toml.
+#
+# This file is read by `editable-python-deps on` (and `setup`/`status`/`off`)
+# to know which packages to make editable. Each [[sources]] block describes
+# one git repository to clone and add to your project as an editable poetry
+# dependency.
+
+version = "1"
+
+# Where cloned repos live, relative to your project root.
+local_cloning_directory = ".editable-deps/"
+
+# The branch we clone and fast-forward to by default. Override per source
+# with `branch = "..."` inside an individual [[sources]] block.
+default_branch = "develop"
+
+[[sources]]
+name = "dermatlas"
+url = "git@gitlab.internal.sanger.ac.uk:DERMATLAS/dermatlas-py.git"
+
+[[sources]]
+name = "t113-google-drive"
+url = "git@gitlab.internal.sanger.ac.uk:team113sanger/common/t113-google-drive.git"
+
+[[sources]]
+name = "dermatlas-web-client"
+url = "git@gitlab.internal.sanger.ac.uk:DERMATLAS/dermatlas-web-client.git"
+# branch = "main"  # uncomment to override default_branch for this source only
