@@ -90,3 +90,22 @@ def test_cli__help():
     errmsg = get_subprocess_message(subproces_result)
     assert subproces_result.returncode == 0, errmsg
     assert PROGRAM_NAME in subproces_result.stdout
+    # And the four subcommands should be listed.
+    for subcommand in ("on", "off", "status", "setup"):
+        assert (
+            subcommand in subproces_result.stdout
+        ), f"subcommand {subcommand!r} missing from --help output:\n{errmsg}"
+
+
+@pytest.mark.parametrize("subcommand", ["on", "off", "status", "setup"])
+def test_cli__subcommand__help(subcommand):
+    # Given a subcommand-level help invocation
+    cmd = f"{PROGRAM_NAME} {subcommand} --help"
+
+    # When the CLI runs
+    subproces_result = subprocess.run(shlex.split(cmd), capture_output=True, text=True)
+
+    # Then it exits 0 and the subcommand name appears in stdout
+    errmsg = get_subprocess_message(subproces_result)
+    assert subproces_result.returncode == 0, errmsg
+    assert subcommand in subproces_result.stdout
