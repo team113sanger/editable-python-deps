@@ -43,12 +43,26 @@ The tool is not on PyPI yet. Install it from the public GitHub repo with
 
 ```bash
 pipx install git+https://github.com/team113sanger/editable-python-deps.git
+# Latest commit on the develop branch (may need --force if you already have it installed)                                                                                                              
+pipx install "git+https://github.com/team113sanger/editable-python-deps.git@develop"
+                                                                                                                                                 
+# A specific tag                                                                                                                                 
+pipx install "git+https://github.com/team113sanger/editable-python-deps.git@v0.1.0"                                                                
+                                                                                                                                                 
+# A specific commit SHA
+pipx install "git+https://github.com/team113sanger/editable-python-deps.git@a1b2c3d"
 ```
 
 To upgrade later:
 
 ```bash
 pipx upgrade editable-python-deps
+```
+
+To remove:
+
+```bash
+pipx uninstall editable-python-deps
 ```
 
 ## Quick start
