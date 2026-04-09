@@ -5,6 +5,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- `editable-python-deps` is now a Python CLI package with four
+  subcommands — `on`, `off`, `status`, and `setup` 
+- transcoded from the original bash script `original/editable-deps.sh`. 
+- The CLI is installable via `pipx` and is configured per-project through a
+  `.editable-deps.toml` file produced by an interactive `prompt_toolkit` dialog
+  wizard.
 
 ## [0.1.0] - 2026-04-07
 ### Added
