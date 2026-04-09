@@ -33,8 +33,8 @@ POETRY_BIN = "poetry"
 # Logging constants
 #
 # Good for CLI logs
-# Messages like: "2024-06-01 12:00:00 INFO     This is a log message"
-LOG_MSG_FORMAT = "%(asctime)s %(levelname)-8s %(message)s"
+# Messages like: "INFO     This is a log message"
+LOG_MSG_FORMAT = "%(levelname)-8s %(message)s"
 #
 # Good for CLIs or scripts where knowing the module is important, especially when working with multiple packages.
 # Messages like: "2024-06-01 12:00:00 INFO     [editable_python_deps.main] This is a log message"
