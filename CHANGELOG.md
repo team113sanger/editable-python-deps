@@ -7,8 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - `editable-python-deps` is now a Python CLI package with four
-  subcommands — `on`, `off`, `status`, and `setup` 
-- transcoded from the original bash script `original/editable-deps.sh`. 
+  subcommands — `on`, `off`, `status`, and `setup`
+- transcoded from the original bash script `original/editable-deps.sh`.
 - The CLI is installable via `pipx` and is configured per-project through a
   `.editable-deps.toml` file produced by an interactive `prompt_toolkit` dialog
   wizard.

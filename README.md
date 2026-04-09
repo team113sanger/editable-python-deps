@@ -3,7 +3,7 @@
 A development-environment utility that lets you reproducibly switch
 specified Python dependencies of a Poetry project from their normal
 non-editable, lockfile-pinned form into local, user-editable git clones
-and back again. 
+and back again.
 
 The motivating workflow is "I'm cross-cutting two related
 Poetry projects and I want to edit-and-test the dependency in place
@@ -43,12 +43,12 @@ The tool is not on PyPI yet. Install it from the public GitHub repo with
 
 ```bash
 pipx install git+https://github.com/team113sanger/editable-python-deps.git
-# Latest commit on the develop branch (may need --force if you already have it installed)                                                                                                              
+# Latest commit on the develop branch (may need --force if you already have it installed)
 pipx install "git+https://github.com/team113sanger/editable-python-deps.git@develop"
-                                                                                                                                                 
-# A specific tag                                                                                                                                 
-pipx install "git+https://github.com/team113sanger/editable-python-deps.git@v0.1.0"                                                                
-                                                                                                                                                 
+
+# A specific tag
+pipx install "git+https://github.com/team113sanger/editable-python-deps.git@v0.1.0"
+
 # A specific commit SHA
 pipx install "git+https://github.com/team113sanger/editable-python-deps.git@a1b2c3d"
 ```
