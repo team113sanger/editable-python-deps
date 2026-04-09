@@ -13,8 +13,8 @@ loop."
 ## Concept
 
 ```
-BEFORE                                  AFTER with 'editable-python-deps'
-------                                  -----
+BEFORE                                    AFTER with 'editable-python-deps'
+------                                    -----
                                            Run 'editable-python-deps on'
                                               |
                                               ▼
@@ -42,7 +42,8 @@ The tool is not on PyPI yet. Install it from the public GitHub repo with
 [`pipx`](https://pipx.pypa.io/):
 
 ```bash
-pipx install git+https://github.com/team113sanger/editable-python-deps.git
+pipx install "git+https://github.com/team113sanger/editable-python-deps.git"
+
 # Latest commit on the develop branch (may need --force if you already have it installed)
 pipx install "git+https://github.com/team113sanger/editable-python-deps.git@develop"
 
@@ -71,23 +72,33 @@ Run the commands below from the root of any Poetry project (i.e. the
 directory containing `pyproject.toml`).
 
 ```bash
-# 1. One-time interactive setup. Walks you through a dialog wizard
+# 1. Switch the project into editable state. Clones each configured
+#    source under .editable-deps/<name>/ and runs
+#    `poetry add --editable <path>` for each one.
+#
+#   On first run, an interactive setup wizard will guide you
+#   through configuring the editable dependencies.
+#    
+#   This command is idempotent and when run multiple times will
+#   safely pull the latest changes without overwriting 
+#   any uncommitted work in the clones.
+editable-python-deps on
+
+# 2. ... edit code in .editable-deps/<name>/ ...
+
+# 3. Switch back to the lockfile-pinned state, restoring pyproject.toml
+#    and poetry.lock from backups taken during 'on'.
+editable-python-deps off
+```
+
+Extra commmands:
+```bash
+# A. Interactive setup. Run (or re-run) a setup wizard
 #    that records which git repos to clone as editable dependencies.
 editable-python-deps setup
 
-# 2. Switch the project into editable state. Clones each configured
-#    source under .editable-deps/<name>/ and runs
-#    `poetry add --editable <path>` for each one.
-editable-python-deps on
-
-# 3. ... edit code in .editable-deps/<name>/ and re-run your tests ...
-
-# 4. Show the current state at any time.
+# B. Show the current state at any time.
 editable-python-deps status
-
-# 5. Switch back to the lockfile-pinned state, restoring pyproject.toml
-#    and poetry.lock from backups taken during 'on'.
-editable-python-deps off
 ```
 
 By default the tool creates two things alongside your `pyproject.toml`:
